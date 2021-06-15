@@ -36,7 +36,7 @@ exports.list_all_transfers = function(req, res) {
           conn.send(JSON.stringify({ method: "subscribe", topic: "kline_15m", symbols: ["BNB_BTCB-1DE"] }));
           var address = req.params[0];
 
-          https.get('https://api.bscscan.com/api?module=account&action=txlist&address='+ address +'&startblock=1&endblock=99999999&sort=desc&apikey=J21VFNWHAS2GZERFXAT4BHJPV5RADG5VTQ', (resp) => {
+          https.get('https://api.bscscan.com/api?module=account&action=tokentx&contractaddress='+ address +'&startblock=1&endblock=99999999&sort=desc&apikey=J21VFNWHAS2GZERFXAT4BHJPV5RADG5VTQ', (resp) => {
             let data = '';
           
             resp.on('data', (chunk) => {
